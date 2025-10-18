@@ -614,6 +614,14 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        
+        .preasignado-checkbox {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background-color: #e9f7ef;
+            border-radius: 5px;
+            border-left: 4px solid var(--success-green);
+        }
     </style>
 </head>
 <body>
@@ -710,7 +718,7 @@
                         <i class="fas fa-users card-icon"></i>
                         <p>220 cupos totales</p>
                         <div class="capacity-counter">
-                            <span id="available-slots">220</span> cupos disponibles
+                            <span id="available-slots">50</span> cupos disponibles para DR./DRA.
                         </div>
                     </div>
                 </div>
@@ -840,7 +848,15 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" id="dr-dra-slots">50</div>
-                        <div>Cupos DR./DRA.</div>
+                        <div>Cupos DR./DRA. Públicos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="preasignados-slots">170</div>
+                        <div>Cupos Preasignados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="preasignados-used">0</div>
+                        <div>Preasignados Usados</div>
                     </div>
                 </div>
                 
@@ -881,6 +897,12 @@
                         <label for="admin-email">Email</label>
                         <input type="email" id="admin-email" name="email" required>
                     </div>
+                    <div class="preasignado-checkbox">
+                        <label>
+                            <input type="checkbox" id="admin-preasignado" name="preasignado" checked>
+                            <strong>Participante Preasignado</strong> (no consume cupos públicos de DR./DRA.)
+                        </label>
+                    </div>
                     <button type="submit" class="btn btn-primary">Registrar Participante</button>
                 </form>
                 
@@ -908,6 +930,13 @@
                             <option value="Otro">Otro</option>
                         </select>
                     </div>
+                    <div class="filter-select form-group">
+                        <select id="filter-preasignado">
+                            <option value="">Todos los tipos</option>
+                            <option value="true">Preasignados</option>
+                            <option value="false">Públicos</option>
+                        </select>
+                    </div>
                 </div>
                 <table class="participants-table">
                     <thead>
@@ -916,6 +945,7 @@
                             <th>Email</th>
                             <th>Cargo</th>
                             <th>Categoría</th>
+                            <th>Tipo</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -1103,6 +1133,12 @@
                     <label for="edit-email">Email</label>
                     <input type="email" id="edit-email" name="email" required>
                 </div>
+                <div class="preasignado-checkbox">
+                    <label>
+                        <input type="checkbox" id="edit-preasignado" name="preasignado">
+                        <strong>Participante Preasignado</strong> (no consume cupos públicos de DR./DRA.)
+                    </label>
+                </div>
                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
             </form>
         </div>
@@ -1147,8 +1183,8 @@
 
     <script>
         // Supabase Configuration
-        const SUPABASE_URL = 'https://aimghochttwwjceoqtxv.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpbWdob2NodHR3d2pjZW9xdHh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA3MTkzMjksImV4cCI6MjA3NjI5NTMyOX0.ybudiBx6xCVp8dy21ELm6s17FWMdmGlOnVLSAcPkdWU';
+        const SUPABASE_URL = 'https://smihcuhfgyjtwuaatfak.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNtaWhjdWhmZ3lqdHd1YWF0ZmFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA3MTAwODksImV4cCI6MjA3NjI4NjA4OX0.HQuTOSon8hCpkhxAp-tI3W28j7w7j7uVidV9i6-HpfE';
         
         // Initialize Supabase client
         const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -1163,6 +1199,7 @@
         const certificatesAvailableDate = new Date('2025-10-27T08:00:00');
         const totalSlots = 220;
         const drDraSlots = 50;
+        const preasignadosSlots = 170;
         
         // DOM Elements
         const countdownElement = document.getElementById('countdown');
@@ -1183,6 +1220,7 @@
         const searchParticipants = document.getElementById('search-participants');
         const filterCargo = document.getElementById('filter-cargo');
         const filterCategoria = document.getElementById('filter-categoria');
+        const filterPreasignado = document.getElementById('filter-preasignado');
         const exportCsvBtn = document.getElementById('export-csv');
         const attendanceTableBody = document.getElementById('attendance-table-body');
         const searchAttendance = document.getElementById('search-attendance');
@@ -1195,6 +1233,8 @@
         const assignedSlotsElement = document.getElementById('assigned-slots');
         const availableAdminSlotsElement = document.getElementById('available-admin-slots');
         const drDraSlotsElement = document.getElementById('dr-dra-slots');
+        const preasignadosSlotsElement = document.getElementById('preasignados-slots');
+        const preasignadosUsedElement = document.getElementById('preasignados-used');
         const editParticipantModal = document.getElementById('edit-participant-modal');
         const closeEditModal = document.querySelector('.close-edit-modal');
         const editParticipantForm = document.getElementById('edit-participant-form');
@@ -1239,6 +1279,7 @@
             searchParticipants.addEventListener('input', filterParticipants);
             filterCargo.addEventListener('change', filterParticipants);
             filterCategoria.addEventListener('change', filterParticipants);
+            filterPreasignado.addEventListener('change', filterParticipants);
             
             // Search and filter attendance
             searchAttendance.addEventListener('input', filterAttendance);
@@ -1304,30 +1345,40 @@
         
         // Update available slots display
         function updateAvailableSlots() {
-            const drDraParticipants = participants.filter(p => 
+            // Contar participantes públicos DR./DRA.
+            const drDraPublicos = participants.filter(p => 
+                p.preasignado === false &&
                 (p.cargo === 'DR.' || p.cargo === 'DRA.') && 
                 (p.categoria === 'Médico General' || p.categoria === 'Especialista')
             ).length;
             
-            // Para usuarios públicos, siempre mostrar 50 cupos disponibles
-            // aunque internamente podamos exceder los 220
-            const available = Math.max(0, drDraSlots - drDraParticipants);
-            availableSlotsElement.textContent = available;
+            // Contar preasignados
+            const preasignadosCount = participants.filter(p => p.preasignado === true).length;
+            
+            // Para usuarios públicos, mostrar cupos disponibles para DR./DRA.
+            const availablePublic = Math.max(0, drDraSlots - drDraPublicos);
+            availableSlotsElement.textContent = availablePublic;
             
             // Actualizar también en el panel administrativo
             const assigned = participants.length;
             const availableAdmin = Math.max(0, totalSlots - assigned);
+            const preasignadosAvailable = Math.max(0, preasignadosSlots - preasignadosCount);
             
             totalSlotsElement.textContent = totalSlots;
             assignedSlotsElement.textContent = assigned;
             availableAdminSlotsElement.textContent = availableAdmin;
-            drDraSlotsElement.textContent = drDraSlots - drDraParticipants;
+            drDraSlotsElement.textContent = drDraSlots - drDraPublicos;
+            preasignadosSlotsElement.textContent = preasignadosAvailable;
+            preasignadosUsedElement.textContent = preasignadosCount;
         }
         
         // Update registration button based on date and availability
         function updateRegistrationButton() {
             const now = new Date();
-            const drDraParticipants = participants.filter(p => 
+            
+            // Solo contar participantes públicos DR./DRA.
+            const drDraPublicos = participants.filter(p => 
+                p.preasignado === false &&
                 (p.cargo === 'DR.' || p.cargo === 'DRA.') && 
                 (p.categoria === 'Médico General' || p.categoria === 'Especialista')
             ).length;
@@ -1335,7 +1386,7 @@
             if (now > registrationDeadline) {
                 submitBtn.textContent = 'Inscripciones Cerradas';
                 submitBtn.disabled = true;
-            } else if (drDraParticipants >= drDraSlots) {
+            } else if (drDraPublicos >= drDraSlots) {
                 submitBtn.textContent = 'No Disponible';
                 submitBtn.disabled = true;
             } else {
@@ -1374,16 +1425,18 @@
                 return;
             }
             
-            // Check category restrictions
+            // Check category restrictions - solo DR./DRA. en categorías Médico General o Especialista
             if ((cargo === 'DR.' || cargo === 'DRA.') && 
                 (categoria === 'Médico General' || categoria === 'Especialista')) {
                 
-                const drDraParticipants = participants.filter(p => 
+                // Solo contar participantes públicos DR./DRA.
+                const drDraPublicos = participants.filter(p => 
+                    p.preasignado === false &&
                     (p.cargo === 'DR.' || p.cargo === 'DRA.') && 
                     (p.categoria === 'Médico General' || p.categoria === 'Especialista')
                 ).length;
                 
-                if (drDraParticipants >= drDraSlots) {
+                if (drDraPublicos >= drDraSlots) {
                     showMessage('No hay cupos disponibles para DR./DRA. en este momento.', 'error');
                     return;
                 }
@@ -1392,7 +1445,7 @@
                 return;
             }
             
-            // Add participant to Supabase
+            // Add participant to Supabase - siempre es público (preasignado = false)
             const { data, error } = await supabase
                 .from('participants')
                 .insert([
@@ -1402,6 +1455,7 @@
                         apellido, 
                         email, 
                         categoria,
+                        preasignado: false,
                         fecha_registro: new Date().toISOString()
                     }
                 ])
@@ -1421,6 +1475,7 @@
                 apellido,
                 email,
                 categoria,
+                preasignado: false,
                 fechaRegistro: new Date().toISOString()
             };
             
@@ -1539,6 +1594,7 @@
             const apellido = formData.get('apellido');
             const email = formData.get('email');
             const categoria = formData.get('categoria');
+            const preasignado = document.getElementById('admin-preasignado').checked;
             
             // Check for duplicate email
             if (participants.some(p => p.email === email)) {
@@ -1562,6 +1618,7 @@
                         apellido, 
                         email, 
                         categoria,
+                        preasignado: preasignado,
                         fecha_registro: new Date().toISOString()
                     }
                 ])
@@ -1581,6 +1638,7 @@
                 apellido,
                 email,
                 categoria,
+                preasignado: preasignado,
                 fechaRegistro: new Date().toISOString()
             };
             
@@ -1598,15 +1656,24 @@
             // Update stats
             const assigned = participants.length;
             const available = Math.max(0, totalSlots - assigned);
-            const drDraParticipants = participants.filter(p => 
+            
+            // Contar participantes públicos DR./DRA.
+            const drDraPublicos = participants.filter(p => 
+                p.preasignado === false &&
                 (p.cargo === 'DR.' || p.cargo === 'DRA.') && 
                 (p.categoria === 'Médico General' || p.categoria === 'Especialista')
             ).length;
             
+            // Contar preasignados
+            const preasignadosCount = participants.filter(p => p.preasignado === true).length;
+            const preasignadosAvailable = Math.max(0, preasignadosSlots - preasignadosCount);
+            
             totalSlotsElement.textContent = totalSlots;
             assignedSlotsElement.textContent = assigned;
             availableAdminSlotsElement.textContent = available;
-            drDraSlotsElement.textContent = drDraSlots - drDraParticipants;
+            drDraSlotsElement.textContent = drDraSlots - drDraPublicos;
+            preasignadosSlotsElement.textContent = preasignadosAvailable;
+            preasignadosUsedElement.textContent = preasignadosCount;
             
             // Update participants table
             renderParticipantsTable();
@@ -1618,7 +1685,7 @@
             participantsTableBody.innerHTML = '';
             
             if (participantsToShow.length === 0) {
-                participantsTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">No hay participantes registrados</td></tr>';
+                participantsTableBody.innerHTML = '<tr><td colspan="6" style="text-align: center;">No hay participantes registrados</td></tr>';
                 return;
             }
             
@@ -1630,6 +1697,7 @@
                     <td>${participant.email}</td>
                     <td>${participant.cargo}</td>
                     <td>${participant.categoria}</td>
+                    <td>${participant.preasignado ? 'Preasignado' : 'Público'}</td>
                     <td class="action-buttons">
                         <button class="btn btn-warning" onclick="editParticipant('${participant.id}')">Editar</button>
                         <button class="btn btn-danger" onclick="deleteParticipant('${participant.id}')">Eliminar</button>
@@ -1644,6 +1712,7 @@
             const searchTerm = searchParticipants.value.toLowerCase();
             const cargoFilter = filterCargo.value;
             const categoriaFilter = filterCategoria.value;
+            const preasignadoFilter = filterPreasignado.value;
             
             const filtered = participants.filter(p => {
                 const matchesSearch = 
@@ -1654,8 +1723,9 @@
                 
                 const matchesCargo = !cargoFilter || p.cargo === cargoFilter;
                 const matchesCategoria = !categoriaFilter || p.categoria === categoriaFilter;
+                const matchesPreasignado = preasignadoFilter === '' || p.preasignado.toString() === preasignadoFilter;
                 
-                return matchesSearch && matchesCargo && matchesCategoria;
+                return matchesSearch && matchesCargo && matchesCategoria && matchesPreasignado;
             });
             
             renderParticipantsTable(filtered);
@@ -1671,6 +1741,7 @@
             document.getElementById('edit-nombre').value = participant.nombre;
             document.getElementById('edit-apellido').value = participant.apellido;
             document.getElementById('edit-email').value = participant.email;
+            document.getElementById('edit-preasignado').checked = participant.preasignado;
             
             editParticipantModal.style.display = 'flex';
         }
@@ -1684,6 +1755,7 @@
             const apellido = document.getElementById('edit-apellido').value;
             const email = document.getElementById('edit-email').value;
             const categoria = document.getElementById('edit-categoria').value;
+            const preasignado = document.getElementById('edit-preasignado').checked;
             
             const participantIndex = participants.findIndex(p => p.id === id);
             if (participantIndex === -1) return;
@@ -1703,7 +1775,7 @@
             // Update participant in Supabase
             const { error } = await supabase
                 .from('participants')
-                .update({ cargo, nombre, apellido, email, categoria })
+                .update({ cargo, nombre, apellido, email, categoria, preasignado })
                 .eq('id', id);
             
             if (error) {
@@ -1719,7 +1791,8 @@
                 nombre,
                 apellido,
                 email,
-                categoria
+                categoria,
+                preasignado
             };
             
             updateAvailableSlots();
@@ -1760,10 +1833,11 @@
                 return;
             }
             
-            let csvContent = 'Cargo,Nombre,Apellido,Email,Categoría,Fecha Registro\n';
+            let csvContent = 'Cargo,Nombre,Apellido,Email,Categoría,Tipo,Fecha Registro\n';
             
             participants.forEach(p => {
-                csvContent += `"${p.cargo}","${p.nombre}","${p.apellido}","${p.email}","${p.categoria}","${p.fechaRegistro}"\n`;
+                const tipo = p.preasignado ? 'Preasignado' : 'Público';
+                csvContent += `"${p.cargo}","${p.nombre}","${p.apellido}","${p.email}","${p.categoria}","${tipo}","${p.fechaRegistro}"\n`;
             });
             
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -2203,6 +2277,7 @@
                     apellido: p.apellido,
                     email: p.email,
                     categoria: p.categoria,
+                    preasignado: p.preasignado,
                     fechaRegistro: p.fecha_registro
                 }));
                 
