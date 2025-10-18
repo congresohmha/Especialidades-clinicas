@@ -90,18 +90,22 @@
         .brochure-link {
             background-color: var(--secondary-blue);
             color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
+            font-weight: 700;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .brochure-link:hover {
             background-color: #1a4a7a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         /* Hero Section */
@@ -614,6 +618,34 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Nuevos estilos para mejoras solicitadas */
+        .date-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .date-main {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .date-year {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary-blue);
+        }
+
+        .capacity-info {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin: 1rem 0;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -678,7 +710,10 @@
                     </div>
                     <div class="card-body">
                         <i class="fas fa-calendar-alt card-icon"></i>
-                        <p>23-25 Octubre </p><p>2025</p>
+                        <div class="date-display">
+                            <div class="date-main">23-25 Octubre</div>
+                            <div class="date-year">2025</div>
+                        </div>
                     </div>
                 </div>
                 <div class="card">
@@ -708,9 +743,10 @@
                     </div>
                     <div class="card-body">
                         <i class="fas fa-users card-icon"></i>
-                        <p>220 cupos totales</p>
-                        <div class="capacity-counter">
-                            <span id="available-slots">50</span> cupos disponibles
+                        <p class="capacity-info">220 cupos totales</p>
+                        <!-- Información de cupos disponibles solo visible para administradores -->
+                        <div class="capacity-counter" id="admin-capacity-info" style="display: none;">
+                            <span id="available-slots">50</span> cupos disponibles para DR./DRA.
                         </div>
                     </div>
                 </div>
@@ -1190,6 +1226,7 @@
         // DOM Elements
         const countdownElement = document.getElementById('countdown');
         const availableSlotsElement = document.getElementById('available-slots');
+        const adminCapacityInfo = document.getElementById('admin-capacity-info');
         const registrationForm = document.getElementById('registration-form');
         const submitBtn = document.getElementById('submit-btn');
         const registrationMessage = document.getElementById('registration-message');
@@ -1340,7 +1377,14 @@
             ).length;
             
             const availablePublic = Math.max(0, publicSlots - publicParticipants);
-            availableSlotsElement.textContent = availablePublic;
+            
+            // Solo mostrar información detallada para administradores
+            if (adminLoggedIn) {
+                adminCapacityInfo.style.display = 'block';
+                availableSlotsElement.textContent = availablePublic;
+            } else {
+                adminCapacityInfo.style.display = 'none';
+            }
             
             // Actualizar también en el panel administrativo
             const assigned = participants.length;
@@ -1500,6 +1544,9 @@
                 hideLoginModal();
                 updateAdminDashboard();
                 
+                // Mostrar información de cupos para administradores
+                adminCapacityInfo.style.display = 'block';
+                
                 // Set session timeout (8 hours)
                 setTimeout(() => {
                     handleAdminLogout();
@@ -1520,6 +1567,9 @@
                 adminPanel.style.display = 'block';
                 updateAdminDashboard();
                 
+                // Mostrar información de cupos para administradores
+                adminCapacityInfo.style.display = 'block';
+                
                 // Reset timeout
                 setTimeout(() => {
                     handleAdminLogout();
@@ -1533,6 +1583,8 @@
             sessionStorage.removeItem('loginTime');
             
             adminPanel.style.display = 'none';
+            // Ocultar información de cupos para usuarios normales
+            adminCapacityInfo.style.display = 'none';
             alert('Sesión cerrada exitosamente.');
         }
         
