@@ -1168,9 +1168,9 @@
     </div>
 
     <script>
-        // Supabase Configuration
-        const SUPABASE_URL = 'https://smihcuhfgyjtwuaatfak.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNtaWhjdWhmZ3lqdHd1YWF0ZmFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA3MTAwODksImV4cCI6MjA3NjI4NjA4OX0.HQuTOSon8hCpkhxAp-tI3W28j7w7j7uVidV9i6-HpfE';
+        // Supabase Configuration - CORREGIDO
+        const SUPABASE_URL = 'https://aimghochttwwjceoqtxv.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpbWdob2NodHR3d2pjZW9xdHh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA3MTkzMjksImV4cCI6MjA3NjI5NTMyOX0.ybudiBx6xCVp8dy21ELm6s17FWMdmGlOnVLSAcPkdWU';
         
         // Initialize Supabase client
         const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -1452,7 +1452,7 @@
                 email,
                 categoria,
                 tipo_registro: 'publico',
-                fechaRegistro: new Date().toISOString()
+                fecha_registro: new Date().toISOString()
             };
             
             participants.push(newParticipant);
@@ -1615,7 +1615,7 @@
                 email,
                 categoria,
                 tipo_registro,
-                fechaRegistro: new Date().toISOString()
+                fecha_registro: new Date().toISOString()
             };
             
             participants.push(newParticipant);
@@ -1809,7 +1809,7 @@
             let csvContent = 'Cargo,Nombre,Apellido,Email,Categoría,Tipo Registro,Fecha Registro\n';
             
             participants.forEach(p => {
-                csvContent += `"${p.cargo}","${p.nombre}","${p.apellido}","${p.email}","${p.categoria}","${p.tipo_registro}","${p.fechaRegistro}"\n`;
+                csvContent += `"${p.cargo}","${p.nombre}","${p.apellido}","${p.email}","${p.categoria}","${p.tipo_registro}","${p.fecha_registro}"\n`;
             });
             
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -2250,7 +2250,7 @@
                     email: p.email,
                     categoria: p.categoria,
                     tipo_registro: p.tipo_registro,
-                    fechaRegistro: p.fecha_registro
+                    fecha_registro: p.fecha_registro
                 }));
                 
                 console.log("Participantes cargados desde Supabase:", participants.length);
