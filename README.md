@@ -710,7 +710,7 @@
                         <i class="fas fa-users card-icon"></i>
                         <p>220 cupos totales</p>
                         <div class="capacity-counter">
-                            <span id="available-slots">50</span> cupos disponibles para DR./DRA.
+                            <span id="available-slots">50</span> cupos disponibles
                         </div>
                     </div>
                 </div>
