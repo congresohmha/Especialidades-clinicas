@@ -1684,6 +1684,7 @@
                 const row = document.createElement('tr');
                 
                 row.innerHTML = `
+                   <td>${participant.cedula}</td>
                     <td>${participant.cargo} ${participant.nombre} ${participant.apellido}</td>
                     <td>${participant.email}</td>
                     <td>${participant.cargo}</td>
