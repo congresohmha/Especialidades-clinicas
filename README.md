@@ -40,7 +40,7 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             margin-bottom: 1rem;
-        }
+        }****
 
         .container {
             width: 100%;
@@ -743,7 +743,7 @@
                     </div>
                     <div class="card-body">
                         <i class="fas fa-users card-icon"></i>
-                        <p class="capacity-info">220 cupos totales</p>
+                        <p class="capacity-info">CUPOS AGOTADOS</p>
                         <!-- Información de cupos disponibles solo visible para administradores -->
                         <div class="capacity-counter" id="admin-capacity-info" style="display: none;">
                             <span id="available-slots">50</span> cupos disponibles para DR./DRA.
