@@ -1627,6 +1627,7 @@
             // Add participant to local array
             const newParticipant = {
                 id: data[0].id,
+                cedula,
                 cargo,
                 nombre,
                 apellido,
@@ -1726,7 +1727,7 @@
         function editParticipant(id) {
             const participant = participants.find(p => p.id === id);
             if (!participant) return;
-            
+            document.getElementById('edit-cedula').value = participant.cedula;
             document.getElementById('edit-participant-id').value = participant.id;
             document.getElementById('edit-cargo').value = participant.cargo;
             document.getElementById('edit-categoria').value = participant.categoria;
