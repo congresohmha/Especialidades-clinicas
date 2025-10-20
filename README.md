@@ -1748,7 +1748,7 @@
             const email = document.getElementById('edit-email').value;
             const categoria = document.getElementById('edit-categoria').value;
             const tipo_registro = document.getElementById('edit-tipo-registro').value;
-            const cedula = document.getElementById('edit-apellido').value;
+            const cedula = document.getElementById('edit-cedula').value;
             
             const participantIndex = participants.findIndex(p => p.id === id);
             if (participantIndex === -1) return;
