@@ -1082,6 +1082,10 @@
                 <input type="hidden" id="edit-participant-id">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                     <div class="form-group">
+                        <label for="edit-cedula">Apellido</label>
+                        <input type="text" id="edit-cedula" name="cedula" required>
+                    </div>
+                    <div class="form-group">
                         <label for="edit-cargo">Cargo</label>
                         <select id="edit-cargo" name="cargo" required>
                             <option value="DR.">DR.</option>
