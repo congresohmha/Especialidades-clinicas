@@ -962,6 +962,7 @@
                 <table class="participants-table">
                     <thead>
                         <tr>
+                            <th>Cedula</th>
                             <th>Nombre</th>
                             <th>Email</th>
                             <th>Cargo</th>
