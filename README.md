@@ -1,29 +1,26 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I CONGRESO INTERNACIONAL DE ESPECIALIDADES CLINICAS-QUIRURGICAS | HOSPITAL MIGUEL H. ALCIVAR 2025</title>
+    <title> I CONGRESO INTERNACIONAL DE ESPECIALIDADES CLINICAS-QUIRURGICAS | HOSPITAL MIGUEL H. ALCIVAR 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Roboto+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <style>
         :root {
-            --primary-blue: #0A4D8C;
-            --secondary-blue: #1E6BA8;
-            --accent-teal: #0891B2;
+            --primary-blue: #1a4a7a;
+            --secondary-blue: #2c6aa4;
             --white: #ffffff;
-            --light-gray: #F8FAFC;
-            --medium-gray: #E2E8F0;
-            --dark-gray: #334155;
-            --success-green: #059669;
-            --alert-red: #DC2626;
-            --countdown-orange: #EA580C;
-            --gradient-start: #0A4D8C;
-            --gradient-end: #0891B2;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #495057;
+            --success-green: #28a745;
+            --alert-red: #dc3545;
+            --countdown-orange: #fd7e14;
         }
 
         * {
@@ -33,37 +30,31 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             color: var(--dark-gray);
             background-color: var(--light-gray);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
             margin-bottom: 1rem;
-            line-height: 1.3;
-        }
+        }****
 
         .container {
             width: 100%;
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
         /* Header Section */
         .header {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            background-color: var(--primary-blue);
             color: var(--white);
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 20px rgba(10, 77, 140, 0.15);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--secondary-blue);
         }
 
         .header-content {
@@ -71,7 +62,6 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1.5rem;
         }
 
         .organizer-info {
@@ -80,84 +70,52 @@
         }
 
         .organizer-info h2 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .organizer-info > p {
-            font-size: 0.95rem;
-            opacity: 0.95;
-            margin-bottom: 0.75rem;
         }
 
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.25rem;
-            font-size: 0.875rem;
+            gap: 1rem;
+            font-size: 0.9rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 0.75rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .contact-item i {
-            font-size: 1rem;
         }
 
         .brochure-link {
-            background: var(--white);
-            color: var(--primary-blue);
-            padding: 1rem 1.75rem;
-            border-radius: 12px;
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .brochure-link:hover {
+            background-color: #1a4a7a;
             transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-            background: var(--light-gray);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
             color: var(--white);
-            padding: 5rem 0;
+            padding: 4rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
         }
 
         .hero-content {
@@ -169,115 +127,73 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
-            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .logo {
-            height: 100px;
-            width: 100px;
-            border-radius: 50%;
-            background: var(--white);
-            padding: 1rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            height: 80px;
+            margin-right: 20px;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            letter-spacing: -0.5px;
         }
 
         .countdown {
-            font-family: 'Inter', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 2.5rem 0;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 2rem;
-            border-radius: 16px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 2rem;
+            margin: 2rem 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
             display: inline-block;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .countdown span {
-            display: inline-block;
-            min-width: 60px;
         }
 
         .badges {
             display: flex;
             justify-content: center;
-            gap: 1.25rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
 
         .badge {
-            background: var(--white);
-            color: var(--primary-blue);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            background-color: var(--countdown-orange);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .cta-button {
             display: inline-block;
-            background: var(--success-green);
+            background-color: var(--success-green);
             color: var(--white);
-            padding: 1.25rem 3rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.25rem;
-            margin-top: 1.5rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
         }
 
         .cta-button:hover {
-            background: #047857;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(5, 150, 105, 0.4);
+            background-color: #218838;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Cards Section */
         .cards-section {
-            padding: 5rem 0;
-            background: var(--light-gray);
+            padding: 4rem 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 3rem;
             color: var(--primary-blue);
-            font-size: 2.5rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-            border-radius: 2px;
         }
 
         .cards-grid {
@@ -287,191 +203,152 @@
         }
 
         .card {
-            background: var(--white);
-            border-radius: 16px;
+            background-color: var(--white);
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(10, 77, 140, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
         }
 
         .card-header {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            background-color: var(--primary-blue);
             color: var(--white);
-            padding: 1.75rem;
+            padding: 1.5rem;
             text-align: center;
         }
 
-        .card-header h3 {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
         .card-body {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent-teal);
-            display: block;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
         }
 
         .capacity-counter {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 600;
             color: var(--primary-blue);
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
 
         /* Registration Section */
         .registration-section {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, rgba(10, 77, 140, 0.03) 0%, rgba(8, 145, 178, 0.03) 100%);
+            padding: 4rem 0;
+            background-color: var(--medium-gray);
         }
 
         .registration-form {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(10, 77, 140, 0.1);
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .form-group {
-            margin-bottom: 1.75rem;
+            margin-bottom: 1.5rem;
         }
 
         label {
             display: block;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--dark-gray);
-            font-size: 0.95rem;
         }
 
         input, select {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--medium-gray);
-            border-radius: 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: var(--white);
-        }
-
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--accent-teal);
-            box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.1);
+            padding: 0.75rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 1.25rem;
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            padding: 1rem;
+            background-color: var(--primary-blue);
             color: var(--white);
             border: none;
-            border-radius: 12px;
-            font-size: 1.15rem;
-            font-weight: 700;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(10, 77, 140, 0.3);
+            transition: background-color 0.3s ease;
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(10, 77, 140, 0.4);
+            background-color: var(--secondary-blue);
         }
 
         .submit-btn:disabled {
-            background: var(--medium-gray);
+            background-color: var(--medium-gray);
             cursor: not-allowed;
-            transform: none;
         }
 
         /* Agenda & Certificates Section */
         .agenda-certificates {
-            padding: 5rem 0;
-            background: var(--white);
+            padding: 4rem 0;
         }
 
         .agenda-container, .certificates-container {
-            background: var(--light-gray);
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            margin-bottom: 2.5rem;
-            border: 1px solid rgba(10, 77, 140, 0.1);
-        }
-
-        .agenda-container h3, .certificates-container h3 {
-            color: var(--primary-blue);
-            font-size: 1.75rem;
-            margin-bottom: 1.25rem;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
         }
 
         .status-badge {
             display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
         }
 
         .status-pending {
-            background: var(--countdown-orange);
+            background-color: var(--countdown-orange);
             color: var(--white);
         }
 
         .status-available {
-            background: var(--success-green);
+            background-color: var(--success-green);
             color: var(--white);
         }
 
         .status-unavailable {
-            background: var(--medium-gray);
+            background-color: var(--medium-gray);
             color: var(--dark-gray);
         }
 
         /* Admin Panel */
         .admin-panel {
-            padding: 3rem 0;
+            padding: 2rem 0;
             display: none;
-            background: var(--light-gray);
         }
 
         .admin-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid var(--medium-gray);
-        }
-
-        .admin-header h2 {
-            color: var(--primary-blue);
-            font-size: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--medium-gray);
         }
 
         .admin-tabs {
             display: flex;
-            border-bottom: 2px solid var(--medium-gray);
-            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--medium-gray);
+            margin-bottom: 2rem;
             flex-wrap: wrap;
-            gap: 0.5rem;
         }
 
         .admin-tab {
@@ -479,20 +356,13 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-            color: var(--dark-gray);
-        }
-
-        .admin-tab:hover {
-            color: var(--primary-blue);
-            background: rgba(10, 77, 140, 0.05);
         }
 
         .admin-tab.active {
-            border-bottom: 3px solid var(--accent-teal);
+            border-bottom: 3px solid var(--primary-blue);
             color: var(--primary-blue);
         }
 
@@ -506,66 +376,40 @@
 
         .dashboard-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .stat-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            border: 1px solid rgba(10, 77, 140, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 2rem;
+            font-weight: 700;
             color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-card div:last-child {
-            color: var(--dark-gray);
-            font-weight: 600;
-            font-size: 0.95rem;
         }
 
         .participants-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1.5rem;
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            margin-top: 1rem;
         }
 
         .participants-table th, .participants-table td {
-            padding: 1rem;
+            padding: 0.75rem;
             text-align: left;
             border-bottom: 1px solid var(--medium-gray);
         }
 
         .participants-table th {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            background-color: var(--primary-blue);
             color: var(--white);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-        }
-
-        .participants-table tbody tr:hover {
-            background: rgba(10, 77, 140, 0.03);
         }
 
         .action-buttons {
@@ -574,118 +418,86 @@
         }
 
         .btn {
-            padding: 0.625rem 1.25rem;
+            padding: 0.5rem 1rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 4px;
             cursor: pointer;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
         }
 
         .btn-primary {
-            background: var(--primary-blue);
+            background-color: var(--primary-blue);
             color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--secondary-blue);
-            transform: translateY(-2px);
         }
 
         .btn-success {
-            background: var(--success-green);
+            background-color: var(--success-green);
             color: var(--white);
-        }
-
-        .btn-success:hover {
-            background: #047857;
-            transform: translateY(-2px);
         }
 
         .btn-danger {
-            background: var(--alert-red);
+            background-color: var(--alert-red);
             color: var(--white);
-        }
-
-        .btn-danger:hover {
-            background: #B91C1C;
-            transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background: var(--medium-gray);
+            background-color: var(--medium-gray);
             color: var(--dark-gray);
         }
 
-        .btn-secondary:hover {
-            background: #CBD5E1;
-        }
-
         .btn-warning {
-            background: var(--countdown-orange);
+            background-color: var(--countdown-orange);
             color: var(--white);
         }
 
-        .btn-warning:hover {
-            background: #C2410C;
-            transform: translateY(-2px);
-        }
-
         .file-upload {
-            border: 3px dashed var(--medium-gray);
-            padding: 3rem;
+            border: 2px dashed var(--medium-gray);
+            padding: 2rem;
             text-align: center;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-            background: var(--white);
+            border-radius: 8px;
+            margin-bottom: 1rem;
         }
 
         .file-upload.active {
-            border-color: var(--accent-teal);
-            background: rgba(8, 145, 178, 0.05);
+            border-color: var(--primary-blue);
+            background-color: rgba(26, 74, 122, 0.05);
         }
 
         .attendance-forms {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .attendance-form {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(10, 77, 140, 0.1);
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         .certificate-template {
-            margin-bottom: 2.5rem;
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
         }
 
         /* Search and Filters */
         .search-filters {
             display: flex;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
 
         .search-box {
             flex: 1;
-            min-width: 280px;
+            min-width: 250px;
         }
 
         .filter-select {
-            min-width: 180px;
+            min-width: 150px;
         }
 
         /* Login Modal */
@@ -696,52 +508,37 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
 
         .modal-content {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
             width: 90%;
-            max-width: 450px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
         }
 
         .modal-header {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
-        }
-
-        .modal-header h2 {
-            color: var(--primary-blue);
-            font-size: 1.75rem;
         }
 
         .close-modal {
             float: right;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark-gray);
-            transition: all 0.3s ease;
-        }
-
-        .close-modal:hover {
-            color: var(--alert-red);
-            transform: rotate(90deg);
         }
 
         /* Map Styles */
         .map-container {
-            height: 220px;
-            margin-top: 1.5rem;
-            border-radius: 12px;
+            height: 200px;
+            margin-top: 1rem;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         /* Edit Modal */
@@ -752,69 +549,41 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
 
         .edit-modal-content {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
             width: 90%;
-            max-width: 600px;
+            max-width: 500px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .close-edit-modal, .close-edit-attendance-modal {
-            float: right;
-            font-size: 1.75rem;
-            cursor: pointer;
-            color: var(--dark-gray);
-            transition: all 0.3s ease;
-        }
-
-        .close-edit-modal:hover, .close-edit-attendance-modal:hover {
-            color: var(--alert-red);
-            transform: rotate(90deg);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 1rem;
                 text-align: center;
             }
 
-            .hero {
-                padding: 3rem 0;
-            }
-
             .hero h1 {
-                font-size: 1.75rem;
+                font-size: 1.8rem;
             }
 
             .countdown {
                 font-size: 1.5rem;
-                padding: 1rem 1.5rem;
-            }
-
-            .countdown span {
-                min-width: 45px;
             }
 
             .badges {
                 flex-direction: column;
                 align-items: center;
-            }
-
-            .section-title {
-                font-size: 2rem;
             }
 
             .admin-tabs {
@@ -827,16 +596,12 @@
             }
 
             .admin-tab.active {
-                border-left: 3px solid var(--accent-teal);
+                border-left: 3px solid var(--primary-blue);
                 border-bottom: 1px solid var(--medium-gray);
             }
 
             .search-filters {
                 flex-direction: column;
-            }
-
-            .registration-form {
-                padding: 2rem;
             }
         }
 
@@ -854,52 +619,32 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Mejoras adicionales */
+        /* Nuevos estilos para mejoras solicitadas */
         .date-display {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
 
         .date-main {
-            font-size: 2rem;
-            font-weight: 800;
+            font-size: 1.8rem;
+            font-weight: 700;
             color: var(--primary-blue);
-            letter-spacing: -0.5px;
         }
 
         .date-year {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--accent-teal);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary-blue);
         }
 
         .capacity-info {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--alert-red);
-            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin: 1rem 0;
             text-align: center;
-            padding: 1rem;
-            background: rgba(220, 38, 38, 0.1);
-            border-radius: 12px;
-        }
-
-        /* Animaciones suaves */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .card, .stat-card {
-            animation: fadeIn 0.6s ease-out;
         }
     </style>
 </head>
@@ -939,15 +684,15 @@
         <div class="container">
             <div class="hero-content">
                 <div class="logo-container">
-                    <img src="/placeholder.svg?height=100&width=100" alt="Hospital Miguel H. Alcivar" class="logo">
+                    <img src="https://via.placeholder.com/80x80/1a4a7a/ffffff?text=MH" alt="Hospital Miguel H. Alcivar" class="logo">
+                    <h1>I ER CONGRESO INTERNACIONAL DE ESPECIALIDADES CLINICAS-QUIRURGICAS</h1>
                 </div>
-                <h1>I CONGRESO INTERNACIONAL DE ESPECIALIDADES CLÍNICAS-QUIRÚRGICAS</h1>
                 <div class="countdown" id="countdown">
                     <span id="days">00</span>d <span id="hours">00</span>h <span id="minutes">00</span>m <span id="seconds">00</span>s
                 </div>
                 <div class="badges">
-                    <div class="badge">✨ GRATUITO</div>
-                    <div class="badge">👥 CUPOS LIMITADOS: 220</div>
+                    <div class="badge">GRATUITO</div>
+                    <div class="badge">CUPOS LIMITADOS: 220</div>
                 </div>
                 <a href="#registration" class="cta-button">Registrarse Ahora</a>
             </div>
@@ -977,14 +722,13 @@
                     </div>
                     <div class="card-body">
                         <i class="fas fa-map-marker-alt card-icon"></i>
-                        <p><strong>BAHÍA DE CARÁQUEZ</strong></p>
-                        <p style="margin-top: 0.5rem; color: var(--dark-gray);">Destino Único en Manabí</p>
-                        <p style="margin-top: 1rem; font-size: 0.95rem;">Auditorio ULEAM BAHÍA DE CARÁQUEZ EXTENSIÓN SUCRE</p>
+                        <p>BAHIA DE CARAQUEZ, DESTINO UNICO EN MANABI</p>
+                        <p>Auditorio ULEAM BAHIA DE CARAQUEZ EXTENSION SUCRE</p>
                         <div class="map-container">
                             <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.267441346091!2d-80.427545!3d-0.5975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902b6b8a5f0c0001%3A0x8c5e5e5e5e5e5e5e!2sBah%C3%ADa%20de%20Car%C3%A1quez%2C%20Ecuador!5e0!3m2!1ses!2ses!4v1690000000000!5m2!1ses!2ses" 
                                 width="100%" 
-                                height="220" 
+                                height="200" 
                                 style="border:0;" 
                                 allowfullscreen="" 
                                 loading="lazy" 
@@ -1000,6 +744,7 @@
                     <div class="card-body">
                         <i class="fas fa-users card-icon"></i>
                         <p class="capacity-info">CUPOS AGOTADOS</p>
+                        <!-- Información de cupos disponibles solo visible para administradores -->
                         <div class="capacity-counter" id="admin-capacity-info" style="display: none;">
                             <span id="available-slots">50</span> cupos disponibles para DR./DRA.
                         </div>
@@ -1011,7 +756,7 @@
                     </div>
                     <div class="card-body">
                         <i class="fas fa-certificate card-icon"></i>
-                        <p style="text-align: center; line-height: 1.6;">Disponibles a partir del<br><strong style="color: var(--primary-blue); font-size: 1.1rem;">27 de Octubre 2025, 8:00</strong></p>
+                        <p>Disponibles a partir del 27 de Octubre 2025, 8:00</p>
                     </div>
                 </div>
             </div>
@@ -1070,18 +815,18 @@
             <h2 class="section-title">Agenda & Certificados</h2>
             <div class="agenda-container">
                 <h3>Agenda del Congreso</h3>
-                <p style="margin-bottom: 1.5rem; line-height: 1.7;">La agenda completa del congreso está disponible en los siguientes enlaces:</p>
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <p>La agenda completa del congreso está disponible en los siguientes enlaces:</p>
+                <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
                     <a href="https://www.canva.com/design/DAGviQzNOHg/TEdQktBuK4jmsez6md4o1Q/watch?utm_content=DAGviQzNOHg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7ace130b42" 
-                       target="_blank" class="cta-button" style="padding: 0.875rem 1.75rem; font-size: 1rem;">
+                       target="_blank" class="cta-button" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
                         <i class="fas fa-external-link-alt"></i> Agenda Jueves 23
                     </a>
                     <a href="https://www.canva.com/design/DAGvnJ0sKWg/P9bBMb4_9RMxwjsn-U6L1A/watch?utm_content=DAGvnJ0sKWg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3de5508bd7" 
-                       target="_blank" class="cta-button" style="padding: 0.875rem 1.75rem; font-size: 1rem;">
+                       target="_blank" class="cta-button" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
                         <i class="fas fa-external-link-alt"></i> Agenda Viernes 24
                     </a>
                     <a href="https://www.canva.com/design/DAGvnl0xCEU/BGl0NXd5kBGS6nBUaSS96g/watch?utm_content=DAGvnl0xCEU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hdbc43ce954" 
-                       target="_blank" class="cta-button" style="padding: 0.875rem 1.75rem; font-size: 1rem;">
+                       target="_blank" class="cta-button" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
                         <i class="fas fa-external-link-alt"></i> Agenda Sábado 25
                     </a>
                 </div>
@@ -1089,39 +834,29 @@
             </div>
             <div class="certificates-container">
                 <h3>Certificados de Participación</h3>
-                <p style="line-height: 1.7;">Los certificados estarán disponibles para descarga a partir del <strong>27 de Octubre 2025, 8:00</strong></p>
+                <p>Los certificados estarán disponibles para descarga a partir del 27 de Octubre 2025, 8:00</p>
                 <div class="status-badge status-unavailable">No Disponible</div>
             </div>
         </div>
     </section>
 
     <!-- Admin Login Button -->
-    <div class="container" style="text-align: center; margin: 3rem 0;">
-        <button id="admin-login-btn" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1rem;">
-            <i class="fas fa-lock"></i> Acceso Administrativo
-        </button>
+    <div class="container" style="text-align: center; margin: 2rem 0;">
+        <button id="admin-login-btn" class="btn btn-primary">Acceso Administrativo</button>
     </div>
 
-    <!-- Admin Panel (mantiene toda la estructura original) -->
+    <!-- Admin Panel -->
     <section class="admin-panel" id="admin-panel">
         <div class="container">
             <div class="admin-header">
                 <h2>Panel de Administración</h2>
-                <button id="admin-logout" class="btn btn-secondary">
-                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
-                </button>
+                <button id="admin-logout" class="btn btn-secondary">Cerrar Sesión</button>
             </div>
             
             <div class="admin-tabs">
-                <button class="admin-tab active" data-tab="participants">
-                    <i class="fas fa-users"></i> Gestión de Participantes
-                </button>
-                <button class="admin-tab" data-tab="attendance">
-                    <i class="fas fa-clipboard-check"></i> Control de Asistencias
-                </button>
-                <button class="admin-tab" data-tab="certificates">
-                    <i class="fas fa-certificate"></i> Enlace de Certificados
-                </button>
+                <button class="admin-tab active" data-tab="participants">Gestión de Participantes</button>
+                <button class="admin-tab" data-tab="attendance">Control de Asistencias</button>
+                <button class="admin-tab" data-tab="certificates">Enlace de Certificados</button>
             </div>
             
             <!-- Participants Management -->
@@ -1145,8 +880,8 @@
                     </div>
                 </div>
                 
-                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Registrar Nuevo Participante</h3>
-                <form id="admin-registration-form" style="background: var(--white); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin-bottom: 3rem;">
+                <h3>Registrar Nuevo Participante</h3>
+                <form id="admin-registration-form">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <div class="form-group">
                             <label for="admin-cargo">Cargo</label>
@@ -1189,15 +924,13 @@
                             <option value="preasignado">Preasignado</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
-                        <i class="fas fa-user-plus"></i> Registrar Participante
-                    </button>
+                    <button type="submit" class="btn btn-primary">Registrar Participante</button>
                 </form>
                 
-                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Lista de Participantes</h3>
+                <h3 style="margin-top: 2rem;">Lista de Participantes</h3>
                 <div class="search-filters">
                     <div class="search-box form-group">
-                        <input type="text" id="search-participants" placeholder="🔍 Buscar por nombre, apellido, email o cargo...">
+                        <input type="text" id="search-participants" placeholder="Buscar por nombre, apellido, email o cargo...">
                     </div>
                     <div class="filter-select form-group">
                         <select id="filter-cargo">
@@ -1242,14 +975,12 @@
                         <!-- Participants will be loaded here -->
                     </tbody>
                 </table>
-                <button id="export-csv" class="btn btn-success" style="margin-top: 1.5rem;">
-                    <i class="fas fa-file-csv"></i> Exportar a CSV
-                </button>
+                <button id="export-csv" class="btn btn-success" style="margin-top: 1rem;">Exportar a CSV</button>
             </div>
             
-            <!-- Attendance Control -->
-            <div class="admin-content" id="attendance-content">
-                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Estadísticas de Asistencia</h3>
+            
+                
+                <h3>Estadísticas de Asistencia</h3>
                 <div class="dashboard-stats">
                     <div class="stat-card">
                         <div class="stat-number" id="total-participants">0</div>
@@ -1265,10 +996,10 @@
                     </div>
                 </div>
                 
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1.5rem;">Detalle de Asistencias</h3>
+                <h3>Detalle de Asistencias</h3>
                 <div class="search-filters">
                     <div class="search-box form-group">
-                        <input type="text" id="search-attendance" placeholder="🔍 Buscar participantes...">
+                        <input type="text" id="search-attendance" placeholder="Buscar participantes...">
                     </div>
                     <div class="filter-select form-group">
                         <select id="filter-attendance-status">
@@ -1293,32 +1024,28 @@
                         <!-- Attendance data will be loaded here -->
                     </tbody>
                 </table>
-                <button id="export-attendance" class="btn btn-success" style="margin-top: 1.5rem;">
-                    <i class="fas fa-file-csv"></i> Exportar CSV
-                </button>
+                <button id="export-attendance" class="btn btn-success" style="margin-top: 1rem;">Exportar CSV</button>
             </div>
             
             <!-- Certificates Link -->
             <div class="admin-content" id="certificates-content">
-                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Enlace de Certificados</h3>
-                <p style="margin-bottom: 2rem; line-height: 1.7;">Configure el enlace para que los asistentes puedan descargar sus certificados a partir del <strong>27 de Octubre 2025, 8:00</strong></p>
+                <h3>Enlace de Certificados</h3>
+                <p>Configure el enlace para que los asistentes puedan descargar sus certificados a partir del 27 de Octubre 2025, 8:00</p>
                 
                 <div class="certificate-template">
-                    <h4 style="color: var(--primary-blue); margin-bottom: 1.25rem;">Enlace de Descarga de Certificados</h4>
+                    <h4>Enlace de Descarga de Certificados</h4>
                     <div class="form-group">
                         <label for="certificate-link">URL de Certificados</label>
                         <input type="url" id="certificate-link" placeholder="https://..." style="width: 100%;">
                     </div>
-                    <button id="save-certificate-link" class="btn btn-success" style="width: 100%; padding: 1rem;">
-                        <i class="fas fa-save"></i> Guardar Enlace
-                    </button>
+                    <button id="save-certificate-link" class="btn btn-success">Guardar Enlace</button>
                     <div id="certificate-link-status" style="margin-top: 1rem;"></div>
                 </div>
                 
-                <div style="margin-top: 2.5rem; background: var(--light-gray); padding: 2rem; border-radius: 12px;">
-                    <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Información para Participantes</h4>
-                    <p style="line-height: 1.7;">Los certificados estarán disponibles a partir del <strong style="color: var(--primary-blue);">27 de Octubre 2025, 8:00</strong>.</p>
-                    <p style="line-height: 1.7; margin-top: 0.5rem;">Los participantes podrán acceder a sus certificados mediante el enlace proporcionado.</p>
+                <div style="margin-top: 2rem;">
+                    <h4>Información para Participantes</h4>
+                    <p>Los certificados estarán disponibles a partir del <strong>27 de Octubre 2025, 8:00</strong>.</p>
+                    <p>Los participantes podrán acceder a sus certificados mediante el enlace proporcionado.</p>
                 </div>
             </div>
         </div>
@@ -1340,9 +1067,7 @@
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
-                </button>
+                <button type="submit" class="submit-btn">Iniciar Sesión</button>
             </form>
         </div>
     </div>
@@ -1402,9 +1127,7 @@
                         <option value="preasignado">Preasignado</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
-                    <i class="fas fa-save"></i> Guardar Cambios
-                </button>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
             </form>
         </div>
     </div>
@@ -1423,31 +1146,28 @@
                 </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
                     <div class="form-group">
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" id="edit-attendance-23" value="23" style="width: auto;">
+                        <label>
+                            <input type="checkbox" id="edit-attendance-23" value="23">
                             Jueves 23
                         </label>
                     </div>
                     <div class="form-group">
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" id="edit-attendance-24" value="24" style="width: auto;">
+                        <label>
+                            <input type="checkbox" id="edit-attendance-24" value="24">
                             Viernes 24
                         </label>
                     </div>
                     <div class="form-group">
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" id="edit-attendance-25" value="25" style="width: auto;">
+                        <label>
+                            <input type="checkbox" id="edit-attendance-25" value="25">
                             Sábado 25
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
-                    <i class="fas fa-save"></i> Guardar Asistencias
-                </button>
+                <button type="submit" class="btn btn-primary">Guardar Asistencias</button>
             </form>
         </div>
     </div>
-
 
     <script>
         // Supabase Configuration - CORREGIDO
@@ -2568,61 +2288,7 @@
         
         // Initialize the application when DOM is loaded
         document.addEventListener('DOMContentLoaded', init);
-          // Countdown Timer
-        function updateCountdown() {
-            const eventDate = new Date('2025-10-23T00:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = eventDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-            if (distance < 0) {
-                document.getElementById('countdown').innerHTML = "¡El evento ha comenzado!";
-            }
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Modal functionality
-        const loginModal = document.getElementById('login-modal');
-        const adminLoginBtn = document.getElementById('admin-login-btn');
-        const closeModal = document.querySelector('.close-modal');
-
-        adminLoginBtn.onclick = () => loginModal.style.display = 'flex';
-        closeModal.onclick = () => loginModal.style.display = 'none';
-        window.onclick = (e) => {
-            if (e.target === loginModal) loginModal.style.display = 'none';
-        };
-
-        // Admin tabs
-        document.querySelectorAll('.admin-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.admin-content').forEach(c => c.classList.remove('active'));
-                tab.classList.add('active');
-                document.getElementById(tab.dataset.tab + '-content').classList.add('active');
-            });
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
     </script>
 </body>
 </html>
+
