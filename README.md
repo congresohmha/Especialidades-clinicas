@@ -977,46 +977,7 @@
                 <button id="export-csv" class="btn btn-success" style="margin-top: 1rem;">Exportar a CSV</button>
             </div>
             
-            <!-- Attendance Control -->
-            <div class="admin-content" id="attendance-content">
-                <h3>Control de Asistencias</h3>
-                <p><strong>Requisito para certificados:</strong> Mínimo 2 de 3 asistencias verificadas</p>
-                
-                <div class="attendance-forms">
-                    <div class="attendance-form">
-                        <h4>Jueves 23</h4>
-                        <div class="form-group">
-                            <label for="form-link-23">Enlace Google Forms</label>
-                            <input type="url" id="form-link-23" placeholder="https://forms.google.com/..." value="https://docs.google.com/forms/d/1nihA_9JrKg1KOJCy4ypah4wtS5wXN3ETaKDgxNjTj70/edit#responses">
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn btn-primary" data-day="23">Guardar Enlace</button>
-                            <button class="btn btn-success" data-day="23">Sincronizar</button>
-                        </div>
-                    </div>
-                    <div class="attendance-form">
-                        <h4>Viernes 24</h4>
-                        <div class="form-group">
-                            <label for="form-link-24">Enlace Google Forms</label>
-                            <input type="url" id="form-link-24" placeholder="https://forms.google.com/..." value="https://docs.google.com/forms/d/18n4OUSB3iGBlBTBH6k4d-Tvma1rSXSS0Yv_vdq7bLVY/edit#responses">
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn btn-primary" data-day="24">Guardar Enlace</button>
-                            <button class="btn btn-success" data-day="24">Sincronizar</button>
-                        </div>
-                    </div>
-                    <div class="attendance-form">
-                        <h4>Sábado 25</h4>
-                        <div class="form-group">
-                            <label for="form-link-25">Enlace Google Forms</label>
-                            <input type="url" id="form-link-25" placeholder="https://forms.google.com/..." value="https://docs.google.com/forms/d/11PXiisbAVSnWc74sRQJntSvnbSFk53um0CQikR0QHww/edit?edit_requested=true#responses">
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn btn-primary" data-day="25">Guardar Enlace</button>
-                            <button class="btn btn-success" data-day="25">Sincronizar</button>
-                        </div>
-                    </div>
-                </div>
+            
                 
                 <h3>Estadísticas de Asistencia</h3>
                 <div class="dashboard-stats">
