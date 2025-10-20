@@ -1785,7 +1785,8 @@
                 apellido,
                 email,
                 categoria,
-                tipo_registro
+                tipo_registro,
+                cedula
             };
             
             updateAvailableSlots();
