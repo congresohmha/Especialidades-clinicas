@@ -1049,7 +1049,7 @@
             <div class="admin-tabs">
                 <button class="admin-tab active" data-tab="participants">Gestión de Participantes</button>
                 <button class="admin-tab" data-tab="attendance">Control de Asistencias</button>
-                <button class="admin-tab" data-tab="certificates">Enlace de Certificados</button>
+                <button class="admin-tab" style="display:none;" data-tab="certificates">Enlace de Certificados</button>
             </div>
             
             <!-- Participants Management -->
