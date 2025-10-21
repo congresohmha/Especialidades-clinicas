@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> I CONGRESO INTERNACIONAL DE ESPECIALIDADES CLINICAS-QUIRURGICAS | HOSPITAL MIGUEL H. ALCIVAR 2025</title>
+    <title>I CONGRESO INTERNACIONAL DE ESPECIALIDADES CLINICAS-QUIRURGICAS | HOSPITAL MIGUEL H. ALCIVAR 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Roboto+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -34,22 +34,23 @@
             color: var(--dark-gray);
             background-color: var(--light-gray);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             margin-bottom: 1rem;
-        }****
+        }
 
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
-        /* Header Section */
+        /* Header Section - Mobile Optimized */
         .header {
             background-color: var(--primary-blue);
             color: var(--white);
@@ -59,47 +60,51 @@
 
         .header-content {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .organizer-info {
-            flex: 1;
-            min-width: 300px;
+            text-align: center;
         }
 
         .organizer-info h2 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
 
         .contact-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+            flex-direction: column;
+            gap: 0.5rem;
             font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
         }
 
         .brochure-link {
             background-color: var(--secondary-blue);
             color: var(--white);
-            padding: 1rem 1.5rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.75rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
         }
 
         .brochure-link:hover {
@@ -108,11 +113,11 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
-        /* Hero Section */
+        /* Hero Section - Mobile Optimized */
         .hero {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
             color: var(--white);
-            padding: 4rem 0;
+            padding: 2.5rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -125,36 +130,39 @@
 
         .logo-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
         }
 
         .logo {
-            height: 80px;
-            margin-right: 20px;
+            height: 70px;
+            margin-bottom: 15px;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
+            line-height: 1.3;
         }
 
         .countdown {
             font-family: 'Roboto Mono', monospace;
-            font-size: 2rem;
-            margin: 2rem 0;
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
             background-color: rgba(0, 0, 0, 0.2);
-            padding: 1rem;
+            padding: 0.8rem;
             border-radius: 8px;
             display: inline-block;
         }
 
         .badges {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
             margin: 1.5rem 0;
         }
 
@@ -164,19 +172,22 @@
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.9rem;
+            width: fit-content;
         }
 
         .cta-button {
             display: inline-block;
             background-color: var(--success-green);
             color: var(--white);
-            padding: 1rem 2rem;
+            padding: 0.9rem 1.8rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-top: 1rem;
             transition: all 0.3s ease;
+            width: 100%;
+            max-width: 250px;
         }
 
         .cta-button:hover {
@@ -185,21 +196,22 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* Cards Section */
+        /* Cards Section - Mobile Optimized */
         .cards-section {
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             color: var(--primary-blue);
+            font-size: 1.8rem;
         }
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         .card {
@@ -217,18 +229,27 @@
         .card-header {
             background-color: var(--primary-blue);
             color: var(--white);
-            padding: 1.5rem;
+            padding: 1.2rem;
             text-align: center;
         }
 
         .card-body {
-            padding: 1.5rem;
+            padding: 1.2rem;
+            text-align: center;
         }
 
         .card-icon {
             font-size: 2rem;
             margin-bottom: 1rem;
             color: var(--primary-blue);
+        }
+
+        .capacity-info {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin: 1rem 0;
+            text-align: center;
         }
 
         .capacity-counter {
@@ -238,23 +259,21 @@
             margin: 1rem 0;
         }
 
-        /* Registration Section */
+        /* Registration Section - Mobile Optimized */
         .registration-section {
-            padding: 4rem 0;
+            padding: 3rem 0;
             background-color: var(--medium-gray);
         }
 
         .registration-form {
-            max-width: 600px;
-            margin: 0 auto;
             background-color: var(--white);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         label {
@@ -269,6 +288,7 @@
             border: 1px solid var(--medium-gray);
             border-radius: 5px;
             font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
         }
 
         .submit-btn {
@@ -293,17 +313,17 @@
             cursor: not-allowed;
         }
 
-        /* Agenda & Certificates Section */
+        /* Agenda & Certificates Section - Mobile Optimized */
         .agenda-certificates {
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
 
         .agenda-container, .certificates-container {
             background-color: var(--white);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .status-badge {
@@ -329,36 +349,37 @@
             color: var(--dark-gray);
         }
 
-        /* Admin Panel */
+        /* Admin Panel - Mobile Optimized */
         .admin-panel {
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             display: none;
         }
 
         .admin-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid var(--medium-gray);
         }
 
         .admin-tabs {
             display: flex;
+            flex-direction: column;
             border-bottom: 1px solid var(--medium-gray);
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
         }
 
         .admin-tab {
-            padding: 1rem 2rem;
+            padding: 1rem;
             background: none;
             border: none;
             cursor: pointer;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             border-bottom: 3px solid transparent;
+            text-align: left;
         }
 
         .admin-tab.active {
@@ -376,21 +397,21 @@
 
         .dashboard-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .stat-card {
             background-color: var(--white);
-            padding: 1.5rem;
+            padding: 1.2rem;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-blue);
         }
@@ -399,12 +420,16 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 1rem;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            display: block;
         }
 
         .participants-table th, .participants-table td {
-            padding: 0.75rem;
+            padding: 0.6rem;
             text-align: left;
             border-bottom: 1px solid var(--medium-gray);
+            white-space: nowrap;
         }
 
         .participants-table th {
@@ -414,17 +439,20 @@
 
         .action-buttons {
             display: flex;
-            gap: 0.5rem;
+            flex-direction: column;
+            gap: 0.3rem;
         }
 
         .btn {
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.8rem;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-family: 'Open Sans', sans-serif;
             font-weight: 600;
             transition: background-color 0.3s ease;
+            font-size: 0.85rem;
+            text-align: center;
         }
 
         .btn-primary {
@@ -454,7 +482,7 @@
 
         .file-upload {
             border: 2px dashed var(--medium-gray);
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             border-radius: 8px;
             margin-bottom: 1rem;
@@ -467,40 +495,39 @@
 
         .attendance-forms {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .attendance-form {
             background-color: var(--white);
-            padding: 1.5rem;
+            padding: 1.2rem;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         .certificate-template {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* Search and Filters */
+        /* Search and Filters - Mobile Optimized */
         .search-filters {
             display: flex;
+            flex-direction: column;
             gap: 1rem;
             margin-bottom: 1.5rem;
-            flex-wrap: wrap;
         }
 
         .search-box {
-            flex: 1;
-            min-width: 250px;
+            width: 100%;
         }
 
         .filter-select {
-            min-width: 150px;
+            width: 100%;
         }
 
-        /* Login Modal */
+        /* Login Modal - Mobile Optimized */
         .modal {
             display: none;
             position: fixed;
@@ -512,23 +539,27 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
+            padding: 1rem;
         }
 
         .modal-content {
             background-color: var(--white);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 10px;
-            width: 90%;
+            width: 100%;
             max-width: 400px;
         }
 
         .modal-header {
             margin-bottom: 1.5rem;
             text-align: center;
+            position: relative;
         }
 
         .close-modal {
-            float: right;
+            position: absolute;
+            right: 0;
+            top: 0;
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -541,7 +572,7 @@
             overflow: hidden;
         }
 
-        /* Edit Modal */
+        /* Edit Modal - Mobile Optimized */
         .edit-modal {
             display: none;
             position: fixed;
@@ -553,58 +584,40 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
+            padding: 1rem;
         }
 
         .edit-modal-content {
             background-color: var(--white);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 10px;
-            width: 90%;
+            width: 100%;
             max-width: 500px;
             max-height: 90vh;
             overflow-y: auto;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .countdown {
-                font-size: 1.5rem;
-            }
-
-            .badges {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .admin-tabs {
-                flex-direction: column;
-            }
-
-            .admin-tab {
-                border-bottom: 1px solid var(--medium-gray);
-                border-left: 3px solid transparent;
-            }
-
-            .admin-tab.active {
-                border-left: 3px solid var(--primary-blue);
-                border-bottom: 1px solid var(--medium-gray);
-            }
-
-            .search-filters {
-                flex-direction: column;
-            }
+        /* Date Display */
+        .date-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
         }
 
+        .date-main {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .date-year {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary-blue);
+        }
+
+        /* Loading Animation */
         .loading {
             display: inline-block;
             width: 20px;
@@ -619,32 +632,99 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Nuevos estilos para mejoras solicitadas */
-        .date-display {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
+        /* Responsive Design for Tablets and Desktops */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .organizer-info {
+                text-align: left;
+            }
+            
+            .contact-info {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            
+            .contact-item {
+                justify-content: flex-start;
+            }
+            
+            .brochure-link {
+                width: auto;
+                margin: 0;
+            }
+            
+            .logo-container {
+                flex-direction: row;
+            }
+            
+            .logo {
+                margin-bottom: 0;
+                margin-right: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .countdown {
+                font-size: 1.8rem;
+            }
+            
+            .badges {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .cta-button {
+                width: auto;
+            }
+            
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .admin-tabs {
+                flex-direction: row;
+            }
+            
+            .admin-tab {
+                text-align: center;
+            }
+            
+            .dashboard-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .action-buttons {
+                flex-direction: row;
+            }
+            
+            .search-filters {
+                flex-direction: row;
+            }
+            
+            .attendance-forms {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
-        .date-main {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-
-        .date-year {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--secondary-blue);
-        }
-
-        .capacity-info {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin: 1rem 0;
-            text-align: center;
+        @media (min-width: 992px) {
+            .cards-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -685,7 +765,7 @@
             <div class="hero-content">
                 <div class="logo-container">
                     <img src="https://via.placeholder.com/80x80/1a4a7a/ffffff?text=MH" alt="Hospital Miguel H. Alcivar" class="logo">
-                    <h1>I ER CONGRESO INTERNACIONAL DE ESPECIALIDADES CLINICAS-QUIRURGICAS</h1>
+                    <h1>I CONGRESO INTERNACIONAL DE ESPECIALIDADES CLINICAS-QUIRURGICAS</h1>
                 </div>
                 <div class="countdown" id="countdown">
                     <span id="days">00</span>d <span id="hours">00</span>h <span id="minutes">00</span>m <span id="seconds">00</span>s
@@ -769,6 +849,10 @@
             <h2 class="section-title">Registro</h2>
             <div class="registration-form">
                 <form id="registration-form">
+                    <div class="form-group">
+                        <label for="cedula">Cédula *</label>
+                        <input type="text" id="cedula" name="cedula" required>
+                    </div>
                     <div class="form-group">
                         <label for="cargo">Cargo *</label>
                         <select id="cargo" name="cargo" required>
@@ -882,6 +966,10 @@
                 
                 <h3>Registrar Nuevo Participante</h3>
                 <form id="admin-registration-form">
+                    <div class="form-group">
+                        <label for="admin-cedula">Cédula</label>
+                        <input type="text" id="admin-cedula" name="cedula">
+                    </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <div class="form-group">
                             <label for="admin-cargo">Cargo</label>
@@ -962,7 +1050,7 @@
                 <table class="participants-table">
                     <thead>
                         <tr>
-                            <th>Cedula</th>
+                            <th>Cédula</th>
                             <th>Nombre</th>
                             <th>Email</th>
                             <th>Cargo</th>
@@ -978,7 +1066,40 @@
                 <button id="export-csv" class="btn btn-success" style="margin-top: 1rem;">Exportar a CSV</button>
             </div>
             
-            
+            <!-- Attendance Management -->
+            <div class="admin-content" id="attendance-content">
+                <h3>Control de Asistencias</h3>
+                <p>Gestión de asistencias por día del congreso</p>
+                
+                <div class="attendance-forms">
+                    <div class="attendance-form">
+                        <h4>Jueves 23</h4>
+                        <div class="form-group">
+                            <label for="form-link-23">Enlace del Formulario</label>
+                            <input type="url" id="form-link-23" placeholder="https://...">
+                        </div>
+                        <button class="btn btn-primary" data-day="23">Guardar Enlace</button>
+                        <button class="btn btn-success" data-day="23">Sincronizar Asistencias</button>
+                    </div>
+                    <div class="attendance-form">
+                        <h4>Viernes 24</h4>
+                        <div class="form-group">
+                            <label for="form-link-24">Enlace del Formulario</label>
+                            <input type="url" id="form-link-24" placeholder="https://...">
+                        </div>
+                        <button class="btn btn-primary" data-day="24">Guardar Enlace</button>
+                        <button class="btn btn-success" data-day="24">Sincronizar Asistencias</button>
+                    </div>
+                    <div class="attendance-form">
+                        <h4>Sábado 25</h4>
+                        <div class="form-group">
+                            <label for="form-link-25">Enlace del Formulario</label>
+                            <input type="url" id="form-link-25" placeholder="https://...">
+                        </div>
+                        <button class="btn btn-primary" data-day="25">Guardar Enlace</button>
+                        <button class="btn btn-success" data-day="25">Sincronizar Asistencias</button>
+                    </div>
+                </div>
                 
                 <h3>Estadísticas de Asistencia</h3>
                 <div class="dashboard-stats">
@@ -1081,11 +1202,11 @@
             </div>
             <form id="edit-participant-form">
                 <input type="hidden" id="edit-participant-id">
+                <div class="form-group">
+                    <label for="edit-cedula">Cédula</label>
+                    <input type="text" id="edit-cedula" name="cedula">
+                </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div class="form-group">
-                        <label for="edit-cedula">Cedula</label>
-                        <input type="text" id="edit-cedula" name="cedula">
-                    </div>
                     <div class="form-group">
                         <label for="edit-cargo">Cargo</label>
                         <select id="edit-cargo" name="cargo" required>
@@ -1170,7 +1291,7 @@
     </div>
 
     <script>
-        // Supabase Configuration - CORREGIDO
+        // Supabase Configuration
         const SUPABASE_URL = 'https://aimghochttwwjceoqtxv.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpbWdob2NodHR3d2pjZW9xdHh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA3MTkzMjksImV4cCI6MjA3NjI5NTMyOX0.ybudiBx6xCVp8dy21ELm6s17FWMdmGlOnVLSAcPkdWU';
         
@@ -1387,6 +1508,7 @@
             e.preventDefault();
             
             const formData = new FormData(registrationForm);
+            const cedula = formData.get('cedula');
             const cargo = formData.get('cargo');
             const nombre = formData.get('nombre');
             const apellido = formData.get('apellido');
@@ -1436,6 +1558,7 @@
                 .from('participants')
                 .insert([
                     { 
+                        cedula,
                         cargo, 
                         nombre, 
                         apellido, 
@@ -1456,6 +1579,7 @@
             // Add participant to local array
             const newParticipant = {
                 id: data[0].id,
+                cedula,
                 cargo,
                 nombre,
                 apellido,
@@ -1583,6 +1707,7 @@
             e.preventDefault();
             
             const formData = new FormData(adminRegistrationForm);
+            const cedula = formData.get('cedula');
             const cargo = formData.get('cargo');
             const nombre = formData.get('nombre');
             const apellido = formData.get('apellido');
@@ -1607,6 +1732,7 @@
                 .from('participants')
                 .insert([
                     { 
+                        cedula,
                         cargo, 
                         nombre, 
                         apellido, 
@@ -1677,7 +1803,7 @@
             participantsTableBody.innerHTML = '';
             
             if (participantsToShow.length === 0) {
-                participantsTableBody.innerHTML = '<tr><td colspan="6" style="text-align: center;">No hay participantes registrados</td></tr>';
+                participantsTableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No hay participantes registrados</td></tr>';
                 return;
             }
             
@@ -1685,7 +1811,7 @@
                 const row = document.createElement('tr');
                 
                 row.innerHTML = `
-                   <td>${participant.cedula}</td>
+                    <td>${participant.cedula || 'N/A'}</td>
                     <td>${participant.cargo} ${participant.nombre} ${participant.apellido}</td>
                     <td>${participant.email}</td>
                     <td>${participant.cargo}</td>
@@ -1712,7 +1838,8 @@
                     p.nombre.toLowerCase().includes(searchTerm) ||
                     p.apellido.toLowerCase().includes(searchTerm) ||
                     p.email.toLowerCase().includes(searchTerm) ||
-                    p.cargo.toLowerCase().includes(searchTerm);
+                    p.cargo.toLowerCase().includes(searchTerm) ||
+                    (p.cedula && p.cedula.toLowerCase().includes(searchTerm));
                 
                 const matchesCargo = !cargoFilter || p.cargo === cargoFilter;
                 const matchesCategoria = !categoriaFilter || p.categoria === categoriaFilter;
@@ -1727,7 +1854,8 @@
         function editParticipant(id) {
             const participant = participants.find(p => p.id === id);
             if (!participant) return;
-            document.getElementById('edit-cedula').value = participant.cedula;
+            
+            document.getElementById('edit-cedula').value = participant.cedula || '';
             document.getElementById('edit-participant-id').value = participant.id;
             document.getElementById('edit-cargo').value = participant.cargo;
             document.getElementById('edit-categoria').value = participant.categoria;
@@ -1743,13 +1871,13 @@
             e.preventDefault();
             
             const id = document.getElementById('edit-participant-id').value;
+            const cedula = document.getElementById('edit-cedula').value;
             const cargo = document.getElementById('edit-cargo').value;
             const nombre = document.getElementById('edit-nombre').value;
             const apellido = document.getElementById('edit-apellido').value;
             const email = document.getElementById('edit-email').value;
             const categoria = document.getElementById('edit-categoria').value;
             const tipo_registro = document.getElementById('edit-tipo-registro').value;
-            const cedula = document.getElementById('edit-cedula').value;
             
             const participantIndex = participants.findIndex(p => p.id === id);
             if (participantIndex === -1) return;
@@ -1769,7 +1897,7 @@
             // Update participant in Supabase
             const { error } = await supabase
                 .from('participants')
-                .update({ cargo, nombre, apellido, email, categoria, tipo_registro,cedula })
+                .update({ cedula, cargo, nombre, apellido, email, categoria, tipo_registro })
                 .eq('id', id);
             
             if (error) {
@@ -1781,13 +1909,13 @@
             // Update participant in local array
             participants[participantIndex] = {
                 ...participants[participantIndex],
+                cedula,
                 cargo,
                 nombre,
                 apellido,
                 email,
                 categoria,
-                tipo_registro,
-                cedula
+                tipo_registro
             };
             
             updateAvailableSlots();
@@ -1828,10 +1956,10 @@
                 return;
             }
             
-            let csvContent = 'Cargo,Nombre,Apellido,Email,Categoría,Tipo Registro,Fecha Registro\n';
+            let csvContent = 'Cédula,Cargo,Nombre,Apellido,Email,Categoría,Tipo Registro,Fecha Registro\n';
             
             participants.forEach(p => {
-                csvContent += `"${p.cargo}","${p.nombre}","${p.apellido}","${p.email}","${p.categoria}","${p.tipo_registro}","${p.fecha_registro}"\n`;
+                csvContent += `"${p.cedula || ''}","${p.cargo}","${p.nombre}","${p.apellido}","${p.email}","${p.categoria}","${p.tipo_registro}","${p.fecha_registro}"\n`;
             });
             
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -2266,6 +2394,7 @@
             if (data) {
                 participants = data.map(p => ({
                     id: p.id,
+                    cedula: p.cedula || '',
                     cargo: p.cargo,
                     nombre: p.nombre,
                     apellido: p.apellido,
@@ -2291,5 +2420,6 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
+</html>
 </html>
 
