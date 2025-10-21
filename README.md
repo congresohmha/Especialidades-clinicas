@@ -1740,13 +1740,13 @@
             
             // Check if certificates are available
             const now = new Date();
-            /*if (now < certificatesAvailableDate) {
+            if (now < certificatesAvailableDate) {
                 certificateResult.className = 'search-result warning';
                 certificateResult.innerHTML = `
                     <p><i class="fas fa-exclamation-triangle"></i> Los certificados estarán disponibles a partir del 27 de Octubre 2025, 8:00</p>
                 `;
                 return;
-            }*/
+            }
             
             // Search for participant by cedula
             const participant = participants.find(p => p.cedula === cedula);
