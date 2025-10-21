@@ -852,7 +852,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="logo-container">
-                    <img src="" alt="Hospital Miguel H. Alcivar" class="logo">
+                    <img src="logmsp.png" alt="Hospital Miguel H. Alcivar" class="logo">
                     <h1>I CONGRESO INTERNACIONAL DE ESPECIALIDADES CLINICAS-QUIRURGICAS</h1>
                 </div>
                 <div class="countdown" id="countdown">
